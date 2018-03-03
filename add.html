@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Star Wars - Express</title>
+    <title>all lonely people, enter info here</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -15,12 +15,13 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h1>Star Wars Express</h1>
-            <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+            <h1>Loners Landing</h1>
+            <h3>Let us help you find friends :D</h3>
+            <h4>After entering your name and age, put down how much you like the following items on a scale of 1 to 5, 5 being you love it, and 1 being, you really rather not</h4>
             <hr>
             <a href="/">
-                <button type="button" class="btn btn-danger btn-lg">
-                    <span class="glyphicon glyphicon-eye-open"></span> View Characters</button>
+                <button type="button" class="btn btn-lg">
+                    <span class="glyphicon glyphicon-eye-open"></span>View friends</button>
             </a>
         </div>
         <div class="row">
@@ -42,25 +43,60 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="role">Role</label>
-                                <input type="text" class="form-control" id="role">
-                            </div>
-
-                            <div class="form-group">
                                 <label for="age">Age</label>
                                 <input type="text" class="form-control" id="age">
                             </div>
 
                             <div class="form-group">
-                                <label for="force-points">Force Points</label>
-                                <input type="text" class="form-control" id="force-points">
+                                <label for="cat">Cats</label>
+                                <input type="text" class="form-control" id="cat">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dog">Dogs</label>
+                                <input type="text" class="form-control" id="dog">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="loyalty">Loyalty</label>
+                                <input type="text" class="form-control" id="loyalty">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="outdoorsy">Outdoorsy?</label>
+                                <input type="text" class="form-control" id="outdoorsy">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="indoorsy">Indoorsy</label>
+                                <input type="text" class="form-control" id="indoorsy">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sports">Sports</label>
+                                <input type="text" class="form-control" id="sports">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="movies">Movies</label>
+                                <input type="text" class="form-control" id="movies">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="foodie">Foodie?</label>
+                                <input type="text" class="form-control" id="foodie">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="travel">Travel?</label>
+                                <input type="text" class="form-control" id="travel">
                             </div>
 
                         </form>
                         <br>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-md" id="add-btn">
-                                <span class="glyphicon glyphicon-fire"></span> Add to the Force</button>
+                                <span class="glyphicon glyphicon-fire"></span>   Add qualities</button>
                         </div>
                     </div>
                 </div>
@@ -70,23 +106,34 @@
     </div>
 
     <script type="text/javascript">
-        // Question: What does this code do?
+        
         $("#add-btn").on("click", function (event) {
             event.preventDefault();
             var newCharacter = {
                 name: $("#name").val().trim(),
-                role: $("#role").val().trim(),
                 age: $("#age").val().trim(),
-                forcePoints: $("#force-points").val().trim()
+                cat: $("#cat").val().trim(),
+                dog: $("#dog").val().trim(),
+                loyalty: $("#loyalty").val().trim(),
+                outdoorsy: $("#outdoorsy").val().trim(),
+                indoorsy: $("#indoorsy").val().trim(),
+                sports: $("#sports").val().trim(),
+                movies: $("#movies").val().trim(),
+                foodie: $("#foodie").val().trim(),
+                travel: $("#travel").val().trim()
             };
 
-            // Question: What does this code do??
+            
+                console.log("this is your new character!!!   " + newCharacter);
+            // This sends the newly added individual to the list of API's
             $.post("/api/new", newCharacter)
                 .then(function (data) {
-                    console.log(data);
-                    alert("Adding character...");
+                    console.log("this is your data!!!!    " + data);
+                    alert("Adding info...");
                 });
+                
         });
+
     </script>
 
 </body>

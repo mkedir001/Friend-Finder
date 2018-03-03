@@ -15,11 +15,13 @@
 
     <div class="container">
         <div class="jumbotron">
-            <h1>Star Wars Express</h1>
-            <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+            <h1>Friend Finder, the friend finding app (just like the name suggests)</h1>
+            <h3>for people who dont like to waste time finding friends the natural way!. Just click the button below, answer a few questions, and never be lonely again!</h3>
             <hr>
+            <a href="/add">
             <button type="button" class="btn btn-danger btn-lg">
-                <span class="glyphicon glyphicon-plus"></span> Add New Character</button>
+                <span class="glyphicon glyphicon-plus"></span>Complete profile</button>
+            </a>
         </div>
         <div class="row">
 
@@ -36,7 +38,7 @@
                         <br>
                         <div class="text-right">
                             <button type="submit" class="btn btn-primary btn-md" id="search-btn">
-                                <span class="glyphicon glyphicon-search"></span> Search Your Feelings. You know it to be true.</button>
+                                <span class="glyphicon glyphicon-search"></span> Find this lonely soul.</button>
                         </div>
                     </div>
                 </div>
@@ -49,19 +51,19 @@
                     </div>
                     <div class="panel-body">
                         <div class="well">
-                            <h2 id="name">Yoda</h2>
+                            <h2 id="name"></h2>
                             <div id="stats">
                                 <h3>
-                                    <strong>Role:</strong>
-                                    <span id="role">Jedi Master</span>
+                                    <strong></strong>
+                                    <span id="cat"></span>
                                 </h3>
                                 <h3>
-                                    <strong>Age:</strong>
-                                    <span id="age">900</span>
+                                    <strong></strong>
+                                    <span id="age"></span>
                                 </h3>
                                 <h3>
-                                    <strong>Force Points:</strong>
-                                    <span id="force-points">2000</span>
+                                    <strong></strong>
+                                    <span id="dog"></span>
                                 </h3>
                             </div>
                         </div>
@@ -72,26 +74,25 @@
     </div>
 
     <script type="text/javascript">
-        // QUESTION: What is this code doing?
+    
         $("#search-btn").on("click", function () {
             var searchedCharacter = $("#character-search").val().trim();
 
-            // Using a RegEx Pattern to remove spaces from searchedCharacter
-            // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+           
             searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
 
-            // QUESTION: What does $.get do? What are the parameters it is expecting?
+          // sets the input into the address bar to grab appropriate api
             $.get("/api/" + searchedCharacter, function (data) {
                 console.log(data);
                 if (data) {
                     $("#stats").show();
                     $("#name").text(data.name);
-                    $("#role").text(data.role);
-                    $("#age").text(data.age);
-                    $("#force-points").text(data.forcePoints);
+                    $("#role").text(data.age);
+                    $("#age").text("We can confirm this lonely soul exists, could this be your next bff? complete your profile and find out");
+                    $("#force-points").text(data.cat);
                 }
                 else {
-                    $("#name").text("The force is not strong with this one. Your character was not found.");
+                    $("#name").text("we're sorry, that lonley individual has not been found");
                     $("#stats").hide();
                 }
             });

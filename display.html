@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>all lonely people, enter info here</title>
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Loners Landing</h1>
+            <h3>Let us help you find friends :D</h3>
+            <h4>After entering your name and age, put down how much you like the following items on a scale of 1 to 5, 5 being you love it, and 1 being, you really rather not</h4>
+            <hr>
+            <a href="/">
+                <button type="button" class="btn btn-lg">
+                    <span class="glyphicon glyphicon-eye-open"></span>View friends</button>
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">CONGRATULATIONS WE FOUND A MATCH!!!</h5>
+                <h2 id="displayname"></h2>
+                <div id="stats">
+                    <h3>
+                        <strong></strong>
+                        <span id="cat"></span>
+                    </h3>
+                    <h3>
+                        <strong></strong>
+                        <span id="age"></span>
+                    </h3>
+                    <h3>
+                        <strong></strong>
+                        <span id="dog"></span>
+                    </h3>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+     
+     // this gets the api information and posts it to the section with the ID displayname, pins the new match to the front end
+            $.get("/api/", function (data) {
+                console.log("This is your Data " + data);
+                console.log("This is your BFF " + Bff);
+                if (data) {
+                    $("#stats").show();
+                    $("#displayname").text(data[0].name);
+                    
+                }
+                else {
+                    $("#name").text("we're sorry, that lonley individual has not been found");
+                    $("#stats").hide();
+                }
+            });
+       
+    </script>
+
+</body>
+
+</html>
