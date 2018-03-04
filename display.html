@@ -31,7 +31,7 @@
             <div class="card-body">
                 <h5 class="card-title">CONGRATULATIONS WE FOUND A MATCH!!!</h5>
                 <h2 id="displayname"></h2>
-                <div id="stats">
+                <!-- <div id="stats"> -->
                     <h3>
                         <strong></strong>
                         <span id="cat"></span>
@@ -53,14 +53,14 @@
     
 
     <script type="text/javascript">
-     
+   
      // this gets the api information and posts it to the section with the ID displayname, pins the new match to the front end
             $.get("/api/", function (data) {
-                console.log("This is your Data " + data);
-                console.log("This is your BFF " + Bff);
+                console.log("This is your Data: " + data + "is the best match");
+                // console.log("This is your BFF " + Bff);
                 if (data) {
-                    $("#stats").show();
-                    $("#displayname").text(data[0].name);
+                    // $("#stats").show();
+                    $("#displayname").text(data);
                     
                 }
                 else {

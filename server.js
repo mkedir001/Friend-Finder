@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var path = require("path");
 
 // =============================================================
+
 var Bff = [];
 var newMan = [];
 var counter = 0;
@@ -41,7 +42,8 @@ var person = [
         sports: 5,
         movies: 5,
         foodie: 5,
-        travel: 5
+        travel: 5,
+        image: "cat2.jpg" 
     },
     {
         routeName: "worstfriend",
@@ -57,7 +59,8 @@ var person = [
         sports: 0,
         movies: 0,
         foodie: 0,
-        travel: 0
+        travel: 0,
+        image: "cat1.jps"
     },
     {
         routeName: "okfriend",
@@ -73,7 +76,8 @@ var person = [
         sports: 3,
         movies: 4,
         foodie: 4,
-        travel: 3
+        travel: 3,
+        image: "cat3.jpg"
     }
 ];
 
@@ -195,7 +199,7 @@ function grabCompatable(){
         console.log(min)
         for(f=0;f<person.length;f++){
             if(person[f].compatability===min){
-                Bff = person[f].name;
+                Bff.push(person[f].name, person[f].image);
                 console.log(person[f].name + ", is the most compatable friend :)")
             }
         }
